@@ -15,6 +15,7 @@ var currencies = {
   BRL: 'Brazilian Real',
   CAD: 'Canadian Dollar',
   CHF: 'Swiss Franc',
+  COP: 'Colombian peso',
   CNY: 'Chinese Yuan',
   CZK: 'Czech Republic Koruna',
   DKK: 'Danish Krone',
@@ -53,6 +54,7 @@ var form = document.querySelector('.app form');
 var fromInput = document.querySelector("[name=\"from_amount\"]");
 var fromSelect = document.querySelector("[name='from_currency']");
 var toSelect = document.querySelector("[name='to_currency']");
+var fromEl = document.querySelector('.displayInput');
 var toEl = document.querySelector('.to_amount');
 var endpoint = 'https://api.apilayer.com/exchangerates_data/latest';
 var ratesByBase = {};
@@ -142,17 +144,16 @@ function handleInput(e) {
         case 2:
           rawAmount = _context3.sent;
           console.log(rawAmount);
+          fromEl.textContent = formatCurrency(fromInput.value, fromSelect.value);
           toEl.textContent = formatCurrency(rawAmount, toSelect.value);
 
-        case 5:
+        case 6:
         case "end":
           return _context3.stop();
       }
     }
   });
 }
-
-form.addEventListener('input', handleInput);
 
 function generateOptions(options) {
   return Object.entries(options).map(function (_ref) {
@@ -166,7 +167,8 @@ function generateOptions(options) {
 
 var optionsHTML = generateOptions(currencies);
 fromSelect.innerHTML = optionsHTML;
-toSelect.innerHTML = optionsHTML; // fetch(
+toSelect.innerHTML = optionsHTML;
+form.addEventListener('input', handleInput); // fetch(
 //   `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`,
 //   requestOptions
 // )

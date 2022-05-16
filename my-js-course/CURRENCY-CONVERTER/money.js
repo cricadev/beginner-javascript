@@ -5,6 +5,7 @@ const currencies = {
   BRL: 'Brazilian Real',
   CAD: 'Canadian Dollar',
   CHF: 'Swiss Franc',
+  COP: 'Colombian peso',
   CNY: 'Chinese Yuan',
   CZK: 'Czech Republic Koruna',
   DKK: 'Danish Krone',
@@ -45,6 +46,7 @@ const form = document.querySelector('.app form');
 const fromInput = document.querySelector(`[name="from_amount"]`);
 const fromSelect = document.querySelector("[name='from_currency']");
 const toSelect = document.querySelector("[name='to_currency']");
+const fromEl = document.querySelector('.displayInput');
 const toEl = document.querySelector('.to_amount');
 const endpoint = 'https://api.apilayer.com/exchangerates_data/latest';
 const ratesByBase = {};
@@ -87,10 +89,9 @@ async function handleInput(e) {
     toSelect.value
   );
   console.log(rawAmount);
+  fromEl.textContent = formatCurrency(fromInput.value, fromSelect.value);
   toEl.textContent = formatCurrency(rawAmount, toSelect.value);
 }
-
-form.addEventListener('input', handleInput);
 
 function generateOptions(options) {
   return Object.entries(options)
@@ -106,6 +107,7 @@ const optionsHTML = generateOptions(currencies);
 fromSelect.innerHTML = optionsHTML;
 toSelect.innerHTML = optionsHTML;
 
+form.addEventListener('input', handleInput);
 // fetch(
 //   `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`,
 //   requestOptions

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+  </head>
+  <body></body>
+  <script>function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function makePizza() {
+  var toppings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  // const pizzaPromise = new Promise((resolve, reject) => {
+  return new Promise(function (resolve, reject) {
+    // reject if people try with pineapple
+    if (toppings.includes("pineapple")) {
+      reject(new Error("No pineapple! :pineapple:"));
+    }
+
+    var amountOfTimeToBake = 500 + toppings.length * 200; // wait 1 second for the pizza to cook:
+
+    setTimeout(function () {
+      resolve("Your pizza is ready with the toppings: ".concat(toppings.join(" ")));
+    }, amountOfTimeToBake); // when you are ready, you can resolve this promise
+    // if something went wrong , we can reject this promise;
+  });
+} // makePizza(["pepperoni", "pineapple"])
+//   .then((pizza) => {
+//     console.log(pizza);
+//     return makePizza(["ham", "cheese"]);
+//   })
+//   .then((pizza) => {
+//     console.log(pizza);
+//     return makePizza([
+//       "bacon",
+//       "sausage",
+//       "pepperoni",
+//       "pineapple",
+//       "ham",
+//       "cheese",
+//     ]);
+//   })
+//   .then((pizza) => {
+//     console.log(pizza);
+//     return makePizza();
+//   })
+//   .then((pizza) => {
+//     console.log(pizza);
+//     return makePizza([
+//       "bacon",
+//       "sausage",
+//       "pepperoni",
+//       "pineapple",
+//       "ham",
+//       "cheese",
+//       "beef",
+//       "chicken",
+//       "meat",
+//       "cheese",
+//       "onion",
+//     ]);
+//   })
+//   .then((pizza) => {
+//     console.log(pizza);
+//   });
+// run them concurrently
+
+
+var pizzaPromise1 = makePizza(["pepperoni", "pineapple", "tomatoes"]);
+var pizzaPromise2 = makePizza(["bacon", "sausage", "pepperoni", "pineapple", "ham", "cheese", "beef", "chicken", "meat", "cheese", "onion"]);
+var pizzaPromise3 = makePizza(["pepperoni", "pineapple", "tomatoes", "ham"]);
+var dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+dinnerPromise.then(function (_ref) {
+  var _ref2 = _slicedToArray(_ref, 3),
+      hottie = _ref2[0],
+      garbagePail = _ref2[1],
+      hamAndCheese = _ref2[2];
+
+  console.log(hottie, garbagePail, hamAndCheese);
+}).catch(handleError);
+var firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+firstPizzaPromise.then(function (pizza) {
+  console.log("You must be hungry, here is the first one ready");
+  console.log(pizza);
+}).catch(handleError);
+
+function handleError(err) {
+  console.log("oh no!");
+  console.log(err);
+}
+
+var p1 = makePizza(["pep"]);
+var p2 = makePizza(["pineapple"]);
+var dinnerPromise2 = Promise.allSettled([p1, p2]);
+dinnerPromise2.then(function (results) {
+  console.log(results);
+}); // const pepperoniPromise = makePizza(["pepperoni"]);
+// const canadianPromise = makePizza(["Pepperoni", "mushrooms", "onions"]);
+// console.log(pepperoniPromise, canadianPromise);
+// console.log("starting pizza");
+// pepperoniPromise.then((pizza) => {
+//   console.log("ahh got it!");
+//   console.log(pizza);
+// });
+// console.log("finished pizza");</script>
+</html>

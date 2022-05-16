@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays</title>
+    <link rel="stylesheet" href="base.css" />
+</head>
+
+<body>
+    <!--! ARRAYS IS USED FOR HOLDING A LIST OF ITEMS, WHERE THE ORDER MATTERS, EACH THING INSIDE AN ARRAY IS ITEM AND WHERE IT REMAINS IN THE ARRAY IT'S CALLED INDEX, THE DATA STORED COULD BE ANYTHING YOU WANTED, arrays has no keys, the keys are always are zero based -- -->
+</body>
+<script>
+    const names = ["wes", "kait", "snickers"];
+
+    console.log(names[1]);
+    console.log(names.length); <!-- !LENGTH IS NOT ZERO BASED -->
+    console.log(names[names.length - 1]);
+
+    // immutable and mutable
+
+    // MUTATION Methods original data changed, that's not unnecessary bad DO CHANGE ORIGINAL DATA
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // ANYTIME YOU WANT TO USE A MUTATION METHOD AND NOT MUTATE THE ORIGINAL ARRAY DATA
+    // WE NEED TO TAKE A COPY OF THE ARRAY
+    const numbersReversed = [...numbers].reverse();
+    console.log(numbersReversed);
+    console.log(numbers);
+
+    // const numbersBackwards = numbers.reverse(); // unnecessary
+    // console.log(numbersBackwards);
+    // console.log(numbers);
+
+    // immutable THEY DO NOT CHANGE THE ORIGINAL DATA
+
+    const pizzaSlice = numbers.slice(2, 4);
+    console.log(pizzaSlice);
+    console.log(numbers);
+
+    names.push("lux");
+    console.log(names);
+    const names2 = [...names, "lux"];
+    console.log(names2);
+    names.unshift("poppy");
+    console.log(names);
+    const names3 = ["poppy", ...names];
+    console.log(names3);
+
+    // SLICE = IMMUTABLE SPLICE =MUTABLE
+
+    const bigNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    console.log(bigNumbers);
+    bigNumbers.splice(3, 2);
+    console.log(bigNumbers);
+
+    const bikes = ["bianchi", "miele", "panasonic", "miyata"];
+    const newBikes = [...bikes.slice(0, 2), "benotto", ...bikes.slice(2)];
+    console.log(newBikes);
+    console.log(bikes);
+
+    const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+    console.log(newBikes2);
+    const newBikes3 = [...newBikes2.slice(0, 4), ...newBikes2.slice(0)];
+    console.log(newBikes3);
+
+    //
+    const comments = [{
+        text: "Cool Beans",
+        id: 123,
+    }, {
+        text: "Love This",
+        id: 133,
+    }, {
+        text: "Good Bikes",
+        id: 223,
+    }, {
+        text: "Neato",
+        id: 333,
+    }, {
+        text: "So Good",
+        id: 433,
+    }, ];
+
+    function deleteComment(id, comments) {
+        //first find the index of the item in the array
+        const commentIndex = comments.findIndex((comment) => comment.id === id);
+        return [
+            ...comments.slice(0, commentIndex),
+            ...comments.slice(commentIndex + 1),
+        ];
+        // make a new array without that item in it
+        // return our new array
+    }
+    const kaitIndex = names.findIndex((name) => name === "kait");
+    const newNamesWithOutKait = [
+        //get everything up to kait index
+        ...names.slice(0, kaitIndex),
+        // everything after kait index
+        ...names.slice(kaitIndex + 1),
+    ];
+    const newNames999 = newNamesWithOutKait.flat();
+    console.log(newNamesWithOutKait);
+    console.log(kaitIndex);
+    console.log(names[kaitIndex]);
+</script>
+
+</html>

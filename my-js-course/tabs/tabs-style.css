@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.tabs {
+    display: grid;
+}
+
+[role="tablist"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+[role="tabpanel"] {
+    background: #F7CCAC;
+    padding: 2rem;
+}
+
+button {
+    background: #826F66;
+    border: 0;
+    color: black;
+    border-radius: 5px 5px 0 0;
+    --bs-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 -2px 5px var(--bs-color);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2rem
+}
+
+button[aria-selected="true"] {
+    background: #C69B7B;
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+
+button:focus {
+    outline: 0;
+    --bs-color: rgba(0, 0, 0, 0.6);
+}
+
+body {
+    background: #3A3845;
+    font-size: 1.6rem
+}

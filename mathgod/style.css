@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;700;800&display=swap');
+:root {
+    --orange: #FDAF75;
+    --yellow: #EAEA7F;
+    --pink: #F24A72;
+    --blue: #333C83;
+    --gradient-orange-yellow: linear-gradient(90deg, rgba(253, 175, 117, 1) 0%, rgba(234, 234, 127, 1) 100%);
+    --gradient-red-orange: linear-gradient(90deg, rgba(242, 74, 114, 1) 0%, rgba(234, 234, 127, 1) 100%);
+    --gradient-orange-red: linear-gradient(90deg, rgba(253, 175, 117, 1) 0%, rgba(242, 74, 114, 1) 100%);
+    --gradient-yellow-green: linear-gradient(90deg, rgba(234, 234, 127, 1) 0%, rgba(127, 234, 138, 1) 100%);
+    --light-blue: #333C83;
+    --light-yellow: rgba(255, 255, 255, 0.5);
+    --light-input: #F5F5C2;
+    --normal-input: #FFDABF;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+nav {
+    background: var(--pink);
+    display: flex;
+    justify-content: space-evenly;
+    height: 5vh;
+    width: 100%;
+}
+
+main {
+    background: var(--blue);
+    height: 90vh;
+    width: 100%;
+}
+
+footer {
+    background: var(--pink);
+    height: 5vh;
+    width: 100%;
+}
+
+label.logo {
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: var(--gradient-orange-yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {}

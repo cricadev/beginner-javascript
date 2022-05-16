@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The DOM</title>
+    <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 62.5%;
+        }
+        
+        body {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #92baac 45px, transparent 45px) 64px 64px, linear-gradient( 45deg, #92baac 45px, transparent 45px, transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px), linear-gradient( -45deg, #92baac 23px, transparent 23px, transparent 68px, #92baac 68px, #92baac 113px, transparent 113px, transparent 158px, #92baac 158px);
+            background-color: #e1ebbd;
+            background-size: 128px 128px;
+        }
+        
+        h2 {
+            padding: 10px 0;
+        }
+        
+        h2 span {
+            display: none;
+        }
+        
+        img {
+            transition: all 0.2s;
+        }
+        
+        .round {
+            border-radius: 50%;
+            transition: all 0.2s;
+            transform: rotate(1turn) scale(2);
+            box-shadow: 0 0 10px black;
+        }
+        
+        .wrapper {
+            width: 100%;
+            display: grid;
+            place-items: center;
+            background-color: #92baac;
+        }
+        
+        .ul {
+            font-size: 2.4rem;
+            color: white;
+        }
+        
+        .li {
+            font-size: 2rem;
+            color: black;
+        }
+        
+        .img {
+            border-radius: 20px;
+            display: block;
+            width: 100px;
+        }
+        
+        .img:hover {
+            transform: scale(1.1);
+        }
+        
+        .edit {
+            display: grid;
+            width: 100%;
+            height: 100vh;
+            place-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="cris">
+        I am cris but I prefer to be called <em>cricadev</em> I like to play
+        <strong>videogames</strong>
+    </p>
+    <img class="nice" src="https://picsum.photos/600" alt="" />
+
+    <div class="items">
+        <div class="item">
+            <img class="custom" data-last="Ramos" data-name="mike" src="https://picsum.photos/200" alt="" />
+            <img data-name="cris" src="https://picsum.photos/200" alt="" />
+            <img data-name="stef" src="https://picsum.photos/200" alt="" />
+            <img data-name="alfred" src="https://picsum.photos/200" alt="" />
+
+            <h2>
+                I am h2
+                <span>wtf</span>
+            </h2>
+            <p>Hi I'm an item</p>
+        </div>
+        <div class="item item2">
+            <img src="https://picsum.photos/200" alt="" />
+
+            <h2>
+                I am h2
+                <p class="pizza">this is how many pizzas I ate! 🍕</p>
+            </h2>
+            <p>Hi I'm a item</p>
+        </div>
+        <article class="item">
+            <h2>I am an article</h2>
+        </article>
+    </div>
+    <div class="edit"></div>
+</body>
+<script src="transversing.js"></script>
+
+</html>

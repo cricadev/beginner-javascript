@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For loops</title>
+    <link rel="stylesheet" href="../base.css" />
+</head>
+
+<body></body>
+<script>
+    const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
+    const names = "Wes Bos";
+    const cricadev = {
+        name: "cris",
+        age: 100,
+        cool: true,
+    };
+    // for
+    for (let i = 100; i <= 120; i += 2) {
+        console.log(i);
+    }
+    for (let i = 0; i < numbers.length; i++) {
+        console.log(i);
+    }
+    // for of
+    for (const letter of names) {
+        console.log(letter);
+    }
+    for (const num of numbers) {
+        console.log(num);
+    }
+    // for in USED FOR LOOPING OVER KEYS OF AN OBJECT
+    for (const prop in names) {
+        console.log(prop);
+    }
+    const baseHumanStats = {
+        feet: 2,
+        arms: 2,
+        eyes: 2,
+        head: 1,
+    };
+
+    function Human(name) {
+        this.name = name;
+    }
+    Human.prototype = baseHumanStats;
+    const wes2 = new Human("wes");
+
+    console.log(Object.keys(wes2));
+
+    for (const prop in wes2) {
+        console.log(prop);
+    }
+    // while loops
+    let cool = true;
+    let i = 0;
+    while (cool === true) {
+        console.log("you're cool");
+        i++;
+        i > 100 ? (cool = false) : (cool = true);
+    }
+    // Do while loops , they do first then check, while loops check first then run
+    do {
+
+    } while ()
+</script>
+
+</html>

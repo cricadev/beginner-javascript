@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event loop</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+      }
+      .go {
+        width: 50vw;
+        height: 50vh;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        background-color: royalblue;
+      }
+      .go.circle {
+        border-radius: 50%;
+      }
+      .go.red {
+        background-color: red;
+      }
+      .go.purple {
+        background-color: purple;
+      }
+      .go.fade {
+        animation: fadeInOut 1s linear forwards;
+      }
+      @keyframes fadeInOut {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="go">Click me</div>
+  </body>
+  <script>
+    // console.log("starting");
+    // setTimeout(() => {
+    //   console.log("running");
+    // }, 2000);
+    // console.log("ending")
+    const go = document.querySelector(".go");
+    // 1. change the text to GO when clicked.
+    go.addEventListener("click", (e) => {
+      const el = e.currentTarget;
+      el.textContent = "GO!";
+      // 2. Make it a circle after 2 seconds.
+      setTimeout(() => {
+        el.classList.add("circle");
+        // 3. Make it red after 0.5 seconds.
+        setTimeout(() => {
+          el.classList.add("red");
+          // 4. Make it a square after 0.25 seconds.
+          setTimeout(() => {
+            el.classList.remove("circle");
+            // 5. Make it purple after 0.3 seconds.
+            setTimeout(() => {
+              el.classList.remove("red");
+              el.classList.add("purple");
+              // 6. Make it fade out after 1 second.
+              setTimeout(() => {
+                el.classList.add("fade");
+              }, 500);
+            }, 300);
+          }, 250);
+        }, 500);
+      }, 2000);
+    });
+    // 2. Make it a circle after 2 seconds.
+    // 3. Make it red after 0.5 seconds.
+    // 4. Make it a square after 0.25 seconds.
+    // 5. Make it purple after 0.3 seconds.
+    // 6. fade out after 0.5 seconds.
+    // 7. finish!
+  </script>
+</html>

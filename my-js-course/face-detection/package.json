@@ -1,0 +1,19 @@
+{
+  "name": "pixelated-face",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pixelated-face.js",
+  "scripts": {
+    "start": "parcel face.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {
+    "@tensorflow-models/blazeface": "^0.0.7",
+    "face-api.js": "^0.22.2",
+    "parcel": "^2.0.0-alpha.2.1"
+  }
+}

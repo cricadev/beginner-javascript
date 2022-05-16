@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind Call and Apply!</title>
+  </head>
+  <body>
+    <p>p</p>
+    <div class="wrapper">
+      <p>hey i'm in a wrapper</p>
+    </div>
+  </body>
+  <script src="/bind-call-apply.6a926190.js"></script>
+  <script>var person = {
+  name: "Wes Bos",
+  sayHi: function sayHi() {
+    console.log(this);
+    console.log("Hi I'm ".concat(this.name));
+    return "Hey ".concat(this.name);
+  }
+};
+var sayHi = person.sayHi.bind(person);
+var jenna = {
+  name: "Jenna"
+};
+var sayHi2 = person.sayHi.bind({
+  name: "cricadev"
+}); // QS example
+//  by calling bind against querySelector, we say when the $ function is run, use `document` as the `this` value.
+
+var $ = document.querySelector.bind(document);
+var lookFor = document.querySelectorAll.bind(document);
+var wrapper = document.querySelector(".wrapper");
+var p = wrapper.querySelector("p");
+console.log(p);
+console.log($("p"));
+console.log(lookFor("p"));
+var bill = {
+  total: 1000,
+  calculate: function calculate(taxRate) {
+    return this.total + this.total * taxRate;
+  }
+};
+var total = bill.calculate(0.13);
+console.log(total);</script>
+</html>

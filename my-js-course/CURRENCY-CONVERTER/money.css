@@ -41,7 +41,7 @@ h1 {
   left: 2.5rem;
 }
 .app form [name="from_amount"] {
-  color: #fff;
+  color: #ffe69a !important;
 }
 .app form {
   position: relative;

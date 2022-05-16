@@ -1,6 +1,5 @@
-import { loader } from '../elements.js';
-
-export async function fetchJoke() {
+// NAMED EXPORT - WE CAN HAVE A LOT OF THIS
+export async function fetchJoke(loader) {
   // turn loader on
   loader.classList.remove('hidden');
   const response = await fetch('https://icanhazdadjoke.com', {

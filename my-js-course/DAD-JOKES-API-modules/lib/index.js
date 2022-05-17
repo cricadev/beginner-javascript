@@ -1,4 +1,3 @@
-
 // NAMED EXPORT - WE CAN HAVE A LOT OF THIS
 export async function fetchJoke(loader) {
   // turn loader on

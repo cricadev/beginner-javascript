@@ -117,14 +117,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"jokes.js":[function(require,module,exports) {
-const jokeButton = document.querySelector('.getJoke');
-const jokeButtonSpan = jokeButton.querySelector('.jokeText');
-const jokeHolder = document.querySelector('.joke p');
-const loader = document.querySelector('.loader');
-const buttonText = ['ugh', '🤦‍♂️', 'omg dad', 'you are the worst', 'seriously', 'stop it.', 'please stop', 'that was the worst one'];
+})({"lib/index.js":[function(require,module,exports) {
+"use strict";
 
-async function fetchJoke() {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchJoke = fetchJoke;
+
+// NAMED EXPORT - WE CAN HAVE A LOT OF THIS
+async function fetchJoke(loader) {
   // turn loader on
   loader.classList.remove('hidden');
   const response = await fetch('https://icanhazdadjoke.com', {
@@ -137,6 +139,38 @@ async function fetchJoke() {
   loader.classList.add('hidden');
   return data;
 }
+},{}],"lib/elements.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.loader = exports.jokeHolder = exports.jokeButtonSpan = exports.jokeButton = void 0;
+const jokeButton = document.querySelector('.getJoke');
+exports.jokeButton = jokeButton;
+const jokeButtonSpan = jokeButton.querySelector('.jokeText');
+exports.jokeButtonSpan = jokeButtonSpan;
+const jokeHolder = document.querySelector('.joke p');
+exports.jokeHolder = jokeHolder;
+const loader = document.querySelector('.loader');
+exports.loader = loader;
+},{}],"data/buttonText.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+const buttonText = ['ugh', '🤦‍♂️', 'omg dad', 'you are the worst', 'seriously', 'stop it.', 'please stop', 'that was the worst one'];
+var _default = buttonText;
+exports.default = _default;
+},{}],"lib/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.randomItemFromArray = randomItemFromArray;
 
 function randomItemFromArray(arr, not) {
   const item = arr[Math.floor(Math.random() * arr.length)];
@@ -149,18 +183,40 @@ function randomItemFromArray(arr, not) {
 
   return item;
 }
+},{}],"lib/handlers.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleClick = handleClick;
+
+var _index = require("./index.js");
+
+var _elements = require("./elements.js");
+
+var _buttonText = _interopRequireDefault(require("../data/buttonText.js"));
+
+var _utils = require("./utils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 async function handleClick() {
   const {
     joke
-  } = await fetchJoke();
-  jokeHolder.textContent = joke;
-  jokeButtonSpan.textContent = randomItemFromArray(buttonText, jokeButtonSpan.textContent);
+  } = await (0, _index.fetchJoke)(_elements.loader);
+  _elements.jokeHolder.textContent = joke;
+  _elements.jokeButtonSpan.textContent = (0, _utils.randomItemFromArray)(_buttonText.default, _elements.jokeButtonSpan.textContent);
 }
+},{"./index.js":"lib/index.js","./elements.js":"lib/elements.js","../data/buttonText.js":"data/buttonText.js","./utils.js":"lib/utils.js"}],"jokes.js":[function(require,module,exports) {
+"use strict";
 
-jokeButton.addEventListener('click', handleClick);
-console.log(randomItemFromArray(buttonText));
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _handlers = require("./lib/handlers.js");
+
+var _elements = require("./lib/elements.js");
+
+_elements.jokeButton.addEventListener('click', _handlers.handleClick);
+},{"./lib/handlers.js":"lib/handlers.js","./lib/elements.js":"lib/elements.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -188,7 +244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40233" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40031" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

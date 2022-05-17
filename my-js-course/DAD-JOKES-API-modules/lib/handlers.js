@@ -1,5 +1,5 @@
 import { fetchJoke } from './index.js';
-import { jokeButtonSpan, jokeHolder } from '../elements.js';
+import { loader, jokeHolder, jokeButtonSpan } from './elements.js';
 import buttonText from '../data/buttonText.js';
 import { randomItemFromArray } from './utils.js';
 

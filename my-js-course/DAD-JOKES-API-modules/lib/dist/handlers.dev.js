@@ -7,7 +7,7 @@ exports.handleClick = handleClick;
 
 var _index = require("./index.js");
 
-var _elements = require("../elements.js");
+var _elements = require("./elements.js");
 
 var _buttonText = _interopRequireDefault(require("../data/buttonText.js"));
 
@@ -23,7 +23,7 @@ function handleClick() {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap((0, _index.fetchJoke)(loader));
+          return regeneratorRuntime.awrap((0, _index.fetchJoke)(_elements.loader));
 
         case 2:
           _ref = _context.sent;

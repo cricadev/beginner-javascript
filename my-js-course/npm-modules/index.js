@@ -36,7 +36,7 @@ async function getJoke() {
     headers: {
       Accept: 'application/json',
     },
-  });
+  }); 
   console.log(data);
 }
 

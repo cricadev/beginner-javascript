@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Audio Analyzer</title>
+  </head>
+
+  <body>
+    <div class="controls">
+      <label for="DATA">
+        DATA:
+        <input value="" type="range" name="DATA" min="5" max="15" step="1" />
+      </label>
+      <label for="WIDTH"
+        >WIDTH:
+        <input value="" type="range" name="width" min="1" max="100" step="1" />
+      </label>
+      <label for="COLOR"
+        >COLOR:
+        <input type="color" value="" name="color" />
+      </label>
+    </div>
+    <span class="popup"
+      >You must refresh the website in order to see the changes</span
+    >
+    <canvas></canvas>
+    <script src="./sound.js"></script>
+
+    <style>
+      html {
+        margin: 0;
+        background: black;
+      }
+
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr;
+        margin: 0;
+        color: white;
+      }
+      label {
+        color: white;
+      }
+      .controls {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .popup {
+        opacity: 0;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        transition: all 0.5s ease-in-out;
+      }
+      .popup.appear {
+        transform: translate(-50%, -40%) scale(1.5);
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+        animation: tilt 0.5s 1s ease-in-out infinite;
+      }
+      @keyframes tilt {
+        0% {
+          transform: translate(-50%, -40%) scale(1.5);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.4);
+        }
+        100% {
+          transform: translate(-50%, -40%) scale(1.5);
+        }
+      }
+    </style>
+  </body>
+</html>

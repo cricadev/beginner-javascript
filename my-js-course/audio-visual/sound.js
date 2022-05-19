@@ -1,6 +1,5 @@
-import wait from 'waait';
-import { hslToRgb } from './utils';
-import get from './controls';
+import { hslToRgb } from './utils.js';
+import {} from './controls.js';
 
 const WIDTH = 1500;
 const HEIGHT = 1500;
@@ -33,7 +32,9 @@ async function getAudio() {
 }
 
 function drawTimeData(timeData) {
-  analyzer.getByteTimeDomainData(timeData);
+  const decibels = analyzer.getByteTimeDomainData(timeData);
+  console.log(decibels);
+
   // now that we have the data, lets turn it into something visual
   // 1. Clean the canvas TODO
   ctx.clearRect(0, 0, canvas.width, canvas.height);

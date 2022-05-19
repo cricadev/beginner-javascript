@@ -1,16 +1,18 @@
-const dataInput = document.querySelector('.controls input[type="range"]');
-const popup = document.querySelector('.popup');
-const colorInput = document.querySelector('[name="color"]');
-const widthInput = document.querySelector('[name="width"]');
+export const dataInput = document.querySelector(
+  '.controls input[type="range"]'
+);
+export const popup = document.querySelector('.popup');
+export const colorInput = document.querySelector('[name="color"]');
+export const widthInput = document.querySelector('[name="width"]');
 
-function handleOption() {
+export function handleOption() {
   localStorage.setItem('options', dataInput.value);
   popup.classList.add('appear');
 }
-function handleColor() {
+export function handleColor() {
   localStorage.setItem('color', colorInput.value);
 }
-function handleWidth() {
+export function handleWidth() {
   localStorage.setItem('width', widthInput.value);
 }
 colorInput.addEventListener('input', handleColor);

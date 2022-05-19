@@ -15,6 +15,7 @@ function displayColors(colors) {
 
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
+
 function start() {
   // see if their browsers supports this;
   if (!('SpeechRecognition' in window)) {

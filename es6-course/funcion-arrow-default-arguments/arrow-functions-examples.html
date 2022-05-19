@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrow function examples =></title>
+  </head>
+  <body>
+    <script>
+      const race = "100m Dash";
+      const winners = ["Hunter Gath", "Singa Song", "Imda bos"];
+
+      const win = winners.map((winner, i) => ({
+        name: winner,
+        race,
+        place: i + 1,
+      }));
+
+      const ages = [23, 62, 234, 45, 2, 62, 234, 62, 35, 69];
+      const old = ages.filter((age) => age >= 60);
+      console.log(old);
+      console.log(win);
+    </script>
+  </body>
+</html>

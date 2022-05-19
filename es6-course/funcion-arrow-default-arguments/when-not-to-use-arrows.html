@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>when not to use arrows</title>
+    <style>
+      button {
+        font-size: 100px;
+      }
+      .on {
+        background: #ffc600;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="pushy">Push me</button>
+    <script>
+      // when you really need 'THIS'
+      const button = document.querySelector("#pushy");
+      button.addEventListener("click", function () {
+        this.classList.toggle("on");
+      });
+      // when you need a method to bind to an object
+      const person = {
+        points: 23,
+        score() {
+          this.points++;
+        },
+      };
+      // when you need to add a prototype method
+      class Car {
+        constructor(make, colour) {
+          this.make = make;
+          this.colour = colour;
+        }
+      }
+
+      const beemer = new Car("bmw", "blue");
+      const subie = new Car("Subaru", "white");
+
+      Car.prototype.summarize = function () {
+        return `This iar is a ${this.make} in the colour ${this.colour}`;
+      };
+
+      // when you need arguments object
+      const orderChildren = function () {
+        const children = Array.from(arguments);
+        return children.map((child, i) => {
+          return `${child} was child #${i + 1}`;
+        });
+      };
+    </script>
+  </body>
+</html>

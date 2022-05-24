@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template strings!!</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        name: "Wes",
+        job: "Web Developer ",
+        city: "Hamilton",
+        bio: `Wes is a really cool guy that loves to teach web
+      development`,
+      };
+      const markup = `<div class="person">${person.name}</div>
+      <div class="person">${person.job}</div> 
+      <div class="person">${person.city}</div>
+      <div class="person">${person.bio}</div>`;
+      console.log(markup);
+      document.body.innerHTML = markup;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>template strings if</title>
+  </head>
+  <body>
+    <script>
+      const song = {
+        title: "The best of me",
+        artist: "The weeknd",
+        album: "The best of me",
+        year: "2017",
+        duration: "3:45",
+      };
+      const markup = `
+        <div class="song">
+          ${song.title ? `<h1>${song.title}</h1>` : ""}
+          <h3>${song.title}</h3>
+          <p>${song.artist}</p>
+          <p>${song.album}</p>
+          <p>${song.year}</p>
+          <p>${song.duration}</p>
+        </div>
+      `;
+    </script>
+  </body>
+</html>

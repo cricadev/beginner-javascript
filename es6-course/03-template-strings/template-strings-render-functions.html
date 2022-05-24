@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>template strings render functions</title>
+  </head>
+  <body>
+    <script>
+      const beer = {
+        name: "Heineken",
+        brewery: "Heineken",
+        country: "Belgium",
+        year: "2017",
+        alcohol: "5.5",
+        volume: "330",
+        price: "2.50",
+        keywords: [`beer`, `drink`, `alcohol`, `belgium`],
+      };
+      function renderKeywords(keywords) {
+        return `
+          <ul>
+            ${keywords.map((keyword) => `<li>${keyword}</li>`).join("")}
+          </ul>
+        `;
+      }
+      const markup = `
+        <div class="beer">
+          <h1>${beer.name}</h1>
+          <h3>${beer.brewery}</h3>
+          <p>${beer.country}</p>
+          ${renderKeywords(beer.keywords)}
+          <p>${beer.year}</p>
+          <p>${beer.alcohol}</p>
+          <p>${beer.volume}</p>
+          <p>${beer.price}</p>
+        </div>
+      `;
+
+      document.body.innerHTML = markup;
+    </script>
+  </body>
+</html>

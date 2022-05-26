@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>destructuring and functions!</title>
+  </head>
+  <body>
+    <script>
+      function convertCurrency(amount) {
+        const converted = {
+          USD: amount * 0.76,
+          GPB: amount * 0.53,
+          AUD: amount * 1.01,
+          CAD: amount * 1.24,
+          EUR: amount * 0.89,
+        };
+        return converted;
+      }
+      const { USD, GPB, AUD, CAD, EUR } = convertCurrency(100);
+      console.log(USD, GPB, AUD, CAD, EUR);
+
+      function tipCalc({ total, tip = 0.15, tax = 0.13 } = {}) {
+        return total + tip * total + tax * total;
+      }
+      const bill = tipCalc({ tax: 0.13, total: 200, tip: 0.2 });
+      console.log(tipCalc());
+      console.log(bill);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>destructuring arrays</title>
+  </head>
+  <body>
+    <script>
+      const details = ["CRICADEV", 123, "cricadev.com"];
+      const [name, id, url] = details;
+      console.log(name, id, url);
+
+      const data = "Basketball,Sports,90210,23";
+      const [itemName, category, sku, price] = data.split(",");
+      console.log(itemName, category, sku, price);
+
+      const team = ["Cris", "Stefanny", "John", "Keegan", "Riker"];
+
+      const [captain, assistant, ...players] = team;
+      console.log(captain, assistant, players);
+    </script>
+  </body>
+</html>

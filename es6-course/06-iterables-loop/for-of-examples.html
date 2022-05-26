@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iterables & Looping</title>
+  </head>
+  <body>
+    <p>HI i'm p 01</p>
+    <p>HI i'm p 02</p>
+    <p>HI i'm p 03</p>
+    <p>HI i'm p 04</p>
+    <p>HI i'm p 05</p>
+    <p>HI i'm p 06</p>
+    <p>HI i'm p 07</p>
+    <p>HI i'm p 08</p>
+    <p>HI i'm p 09</p>
+    <p>HI i'm p 10</p>
+    <script>
+      const cuts = ["Chuck", "Brisket", "Shank", "Short Rib"];
+
+      for (const [i, cut] of cuts.entries()) {
+        console.log(`${cut} is the cut ${i} item`);
+      }
+
+      function addUpNumbers() {
+        let total = 0;
+        for (const num of arguments) {
+          total += num;
+        }
+        console.log(total);
+        return total;
+      }
+      addUpNumbers(10, 23, 55, 34, 12, 13);
+
+      const name = "Cricadev";
+      for (const char of name) {
+        console.log(char);
+      }
+
+      const ps = document.querySelectorAll("p");
+      console.log(ps);
+      for (const paragraph of ps) {
+        paragraph.addEventListener("click", function (e) {
+          console.log(this.textContent);
+        });
+      }
+    </script>
+  </body>
+</html>

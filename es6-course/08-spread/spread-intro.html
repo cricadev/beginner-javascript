@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The ...spread operator</title>
+  </head>
+  <body>
+    <script>
+      const featured = ["Deep Dish", "Pepperoni", "Hawaiian"];
+      const specialty = ["Meatzza", "Spicy Mama", "Margherita"];
+      const pizzas = featured.concat(specialty);
+
+      let pizzasSpread = [...featured, "vegetables", ...specialty];
+
+      const fridayPizzas = [...pizzasSpread];
+
+      const deepDish = {
+        name: "Deep Dish",
+        price: 50.99,
+        description: "The best pizza in town",
+        isVegetarian: false,
+        isSpicy: false,
+        ingredients: ["Marinara Sauce", "Italian Sausage", "Dough", "Cheese"],
+      };
+    </script>
+  </body>
+</html>

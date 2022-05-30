@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread example</title>
+  </head>
+  <body>
+    <div class="numbers">
+      <p>01</p>
+      <p>02</p>
+      <p>03</p>
+    </div>
+    <script>
+      const numbers = [...document.querySelectorAll(".numbers p")];
+      console.log(numbers);
+
+      const number = numbers.map((number) => number.textContent);
+
+      const deepDish = {
+        name: "Deep Dish",
+        price: 50.99,
+        description: "The best pizza in town",
+        isVegetarian: false,
+        isSpicy: false,
+        ingredients: ["Marinara Sauce", "Italian Sausage", "Dough", "Cheese"],
+      };
+
+      const shoppingList = [
+        "Milk",
+        "Eggs",
+        "Flour",
+        "Sugar",
+        "Baking Powder",
+        "Chocolate Spread",
+        "Cheese",
+        "Butter",
+        ...deepDish.ingredients,
+      ];
+
+      const comments = [
+        {
+          id: 1,
+          text: "Love this!",
+          author: "cricadev",
+        },
+        {
+          id: 2,
+          text: "Super good",
+        },
+        {
+          id: 3,
+          text: "You are the best",
+        },
+        {
+          id: 4,
+          text: "Ramen is my fav food ever",
+        },
+      ];
+      const id = 3;
+      const commentIndex = comments.findIndex((comment) => comment.id === id);
+      console.log(commentIndex);
+      const newComments = [
+        [
+          ...comments.slice(0, commentIndex),
+          ...comments.slice(commentIndex + 1),
+        ],
+      ];
+      console.log(newComments);
+    </script>
+  </body>
+</html>

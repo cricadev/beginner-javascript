@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The ...Rest param</title>
+  </head>
+  <body>
+    <script>
+      function convertCurrency(rate, ...amounts) {
+        return amounts.map((amount) => amount * rate);
+      }
+      convertCurrency(1.54, 10, 232, 432, 431, 1231232);
+
+      // The ...Rest param is used to collect the remaining arguments into an array.
+
+      const runner = ["Cricadev", 1234, 5.5, 5, 3, 6, 35];
+      const [name, id, ...runs] = runner;
+      const team = ['Wes, "kait', "lux", "sheena", "kelly"];
+      const [captain, assistant, ...players] = team;
+    </script>
+  </body>
+</html>

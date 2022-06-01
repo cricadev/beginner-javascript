@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes</title>
+  </head>
+  <body>
+    <script>
+      class Dog {
+        constructor(name, breed) {
+          this.name = name;
+          this.breed = breed;
+        }
+
+        bark() {
+          console.log(`Bark Bark! My name is ${this.name}`);
+        }
+
+        cuddle() {
+          console.log(`I love you! and i am ${this.breed}`);
+        }
+
+        static info() {
+          console.log("This is a static method");
+        }
+
+        get description() {
+          return `${this.name} is a ${this.breed}`;
+        }
+
+        set nicknames(value) {
+          this.nick = value.trim();
+        }
+
+        get nicknames() {
+          return this.nick;
+        }
+      }
+
+      const snickers = new Dog("Snickers", "King Charles");
+      const sunny = new Dog("Sunny", "Puddle");
+    </script>
+  </body>
+</html>

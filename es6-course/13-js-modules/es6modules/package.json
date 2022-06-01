@@ -1,0 +1,24 @@
+{
+  "name": "es6modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "insane": "^2.6.2",
+    "jquery": "^3.6.0",
+    "jsonp": "^0.2.1",
+    "slug": "^5.3.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "flickity": "^3.0.0",
+    "lodash": "^4.17.21",
+    "webpack": "^5.72.1"
+  }
+}

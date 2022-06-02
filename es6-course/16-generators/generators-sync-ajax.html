@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generators Ajax</title>
+  </head>
+  <body>
+    <script>
+      function ajax(url) {
+        fetch(url)
+          .then((data) => data.json())
+          .then((data) => dataGen.next(data));
+      }
+      function* steps() {
+        console.log("fetching cat fact");
+        const catFact = yield ajax("https://cat-fact.herokuapp.com/facts");
+        const textCat = catFact.map((fact) => fact.text);
+        console.log(textCat);
+
+        console.log("fetching cat image");
+        const imgCat = yield ajax(`https://cataas.com/cat/says/${textCat}`);
+        console.log(imgCat);
+
+        console.log("fetching dog image");
+        const fatJoe = yield ajax("https://dog.ceo/api/breeds/image/random");
+        console.log(fatJoe);
+      }
+
+      const dataGen = steps();
+      dataGen.next(); // kick it off
+    </script>
+  </body>
+</html>

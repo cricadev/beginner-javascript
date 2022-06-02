@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generators</title>
+  </head>
+  <body>
+    <script>
+      function* listPeople() {
+        let i = 0;
+        yield i;
+        i += 1;
+        yield i;
+        i += 1;
+
+        yield i;
+      }
+      const people = listPeople();
+
+      const inventors = [
+        {
+          first: "Albert",
+          last: "Einstein",
+          year: 1879,
+          passed: 1955,
+        },
+        {
+          first: "Isaac",
+          last: "Newton",
+          year: 1643,
+          passed: 1727,
+        },
+        {
+          first: "Galileo",
+          last: "Galilei",
+          year: 1564,
+          passed: 1642,
+        },
+        {
+          first: "Marie",
+          last: "Curie",
+          year: 1867,
+          passed: 1934,
+        },
+        {
+          first: "Johannes",
+          last: "Kepler",
+          year: 1571,
+          passed: 1630,
+        },
+        {
+          first: "Nicolaus",
+          last: "Copernicus",
+          year: 1473,
+          passed: 1543,
+        },
+        {
+          first: "Max",
+          last: "Planck",
+          year: 1858,
+          passed: 1947,
+        },
+      ];
+
+      function* loop(arr) {
+        for (const item of arr) {
+          yield item;
+        }
+      }
+      const loopArr = loop(inventors);
+    </script>
+  </body>
+</html>

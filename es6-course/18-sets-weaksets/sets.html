@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sets</title>
+  </head>
+  <body>
+    <script>
+      const people = new Set();
+      people.add("Wes");
+      people.add("Kait");
+      people.add("Cris");
+
+      for (const person of people) {
+        console.log(person);
+      }
+
+      const students = new Set(["Wes", "Kara", "Cris"]);
+
+      const dogs = ["Snickers", "sunny"];
+      const dogSet = new Set(dogs);
+      //has for of delete
+    </script>
+  </body>
+</html>
